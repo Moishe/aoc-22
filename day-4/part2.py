@@ -1,11 +1,4 @@
-def overlaps(r1, r2):
-    return r1[1] >= r2[0] and r2[1] >= r1[0]
-
 f = open('input.txt')
-c = 0
-for l in f.readlines():
-    (range1,range2) = [[int(x) for x in x.split('-')] for x in l.strip().split(',')]
-    if overlaps(range1, range2):
-        c += 1
-
-print(c)
+o = [[[int(x) for x in r.split('-')] for r in l.strip().split(',')] for l in f.readlines()]
+m = filter(lambda x: x[0][1] >= x[1][0] and x[1][1] >= x[0][0], o)
+print(len(list(m)))
