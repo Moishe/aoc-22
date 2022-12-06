@@ -1,5 +1,3 @@
-from collections import deque
-
 unique_len = 14 # 4 for part 1
 
 f = open('input.txt')
