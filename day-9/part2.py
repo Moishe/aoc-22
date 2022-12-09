@@ -40,7 +40,8 @@ def print_board(segments):
     print()
 
 
-segments = [np.array([0,0]) for i in range(10)]
+LENGTH = 10 # use length 2 for part 1
+segments = [np.array([0,0]) for i in range(LENGTH)]
 commands = [l.strip().split(' ') for l in f.readlines()]
 for (direction, distance) in [(x[0], int(x[1])) for x in commands]:
     (dx,dy) = dxdy[direction]
