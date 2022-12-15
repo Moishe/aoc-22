@@ -31,22 +31,6 @@ def maybeEnqueue(pos, path):
                 visited.add(pos)
 
 
-def h(x):
-    global end
-    (pos, path) = x
-    dy = pos[0] - end[0]
-    dx = pos[1] - end[1]
-    v = len(path) * 100 - (ord(grid[pos]) -
-                           ord('a')) - math.sqrt(dx * dx + dy * dy)
-    print(pos, grid[pos], end, v)
-    return v
-
-
-def sortQueue():
-    global paths
-    paths = deque(sorted(paths, key=lambda x: h(x)))
-
-
 while len(paths):
     (pos, path) = paths.popleft()
     if pos == end:
@@ -58,7 +42,6 @@ while len(paths):
     maybeEnqueue((pos[0] + 1, pos[1]), new_path)
     maybeEnqueue((pos[0], pos[1] - 1), new_path)
     maybeEnqueue((pos[0], pos[1] + 1), new_path)
-    # sortQueue()
 
 print("not found")
 exit(1)
